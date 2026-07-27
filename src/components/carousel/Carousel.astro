@@ -1,0 +1,27 @@
+---
+import { slides } from "../../data/carousel";
+import CarouselSlide from "./CarouselSlide.astro";
+
+import "swiper/css";
+---
+
+<script>
+    import { register } from "swiper/element/bundle";
+
+    register();
+</script>
+
+<swiper-container
+    slides-per-view="1"
+    loop="true"
+    autoplay-delay="5000"
+    pagination="true"
+>
+    {
+        slides.map((slide) => (
+            <swiper-slide>
+                <CarouselSlide {...slide} />
+            </swiper-slide>
+        ))
+    }
+</swiper-container>
