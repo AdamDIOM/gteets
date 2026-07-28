@@ -1,5 +1,5 @@
 ---
-import Carousel from "./carousel/Carousel.astro";
+const { title, subtitle, content = "" } = Astro.props;
 ---
 
 <section class="bg-primary text-white">
@@ -8,12 +8,11 @@ import Carousel from "./carousel/Carousel.astro";
     >
         <div>
             <h1 class="text-5xl lg:text-7xl font-bold">
-                Engineering the future
+                {title}
             </h1>
 
-            <p class="mt-6 text-2xl">Welcome to GTEETS.</p>
+            <p class="mt-6 text-2xl">{subtitle}</p>
         </div>
-
-        <Carousel />
+        {content}
     </div>
 </section>
