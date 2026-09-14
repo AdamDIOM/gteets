@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ActionButton from "../components/ActionButton.astro";
+---
+
+<Layout title="Page Not Found | Global Engineering Training System">
+    <section
+        class="min-h-screen flex items-center bg-primary text-white w-full"
+    >
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <Hero
+                title="404 - Page Not Found"
+                subtitle="Sorry, we couldn't find the page you were looking for."
+                content={(<ActionButton label="Back to Home" page="/" />)}
+            />
+        </div>
+    </section>
+</Layout>
