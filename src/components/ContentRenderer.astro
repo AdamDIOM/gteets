@@ -1,0 +1,31 @@
+---
+interface Props {
+    content:
+        | {
+              type: "text";
+              value: string;
+          }
+        | {
+              type: "component";
+              component: any;
+              props?: Record<string, any>;
+          };
+}
+
+const { content } = Astro.props;
+
+let Component;
+
+if (content.type === "component") {
+    Component = content.component;
+}
+---
+
+<div class="flex items-center justify-center">
+    {content.type === "text" && <p>{content.value}</p>}
+    {
+        content.type === "component" && Component && (
+            <Component {...content.props} />
+        )
+    }
+</div>

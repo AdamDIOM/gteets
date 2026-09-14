@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import TextSection from "../components/content/TextSection.astro";
+import { about } from "../data/about";
 ---
 
 <Layout>
@@ -12,6 +14,21 @@ import Hero from "../components/Hero.astro";
                 title="About GETS"
                 subtitle="Learn more about the Global Engineering Training System."
             />
+
+            {
+                about.map((section) => (
+                    <TextSection
+                        title={section.title}
+                        subtitle={section.subtitle}
+                        content={section.content}
+                        {...(section.props && { props: section.props })}
+                    />
+                ))
+            }
+
+            <!-- section introing the concept and birth -->
+            <!-- section introing the team – what roles. List qualifications? -->
+            <!-- section introing materials (link to the "plans" page) -->
         </div>
     </section>
 </Layout>

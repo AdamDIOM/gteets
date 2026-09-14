@@ -1,0 +1,9 @@
+---
+const { image } = Astro.props;
+---
+
+<img
+    src={image.source}
+    alt={image.alt}
+    class={image.rounded ? "rounded-xl" : ""}
+/>

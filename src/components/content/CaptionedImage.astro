@@ -1,0 +1,20 @@
+---
+const { image, caption, shape } = Astro.props;
+
+const imageShapeClasses: Record<string, string> = {
+    square: "rounded-none",
+    circle: "w-100 h-100 rounded-full object-cover",
+    profile: "w-100 h-100 rounded-t-full rounded-b-xl object-cover",
+};
+
+const imageShapeClass = imageShapeClasses[shape] ?? "";
+---
+
+<div class="flex flex-col">
+    <img
+        src={image.source}
+        alt={image.alt}
+        class=`${imageShapeClass} block mx-auto`
+    />
+    <p class="text-center font-bold">{caption}</p>
+</div>
